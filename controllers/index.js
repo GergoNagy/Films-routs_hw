@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.use('/films', require('./films'));
+router.use('/api/films', require('./films'));
 
 
 router.get('/', function(req, res){

@@ -14,6 +14,10 @@ var filmRoute = express.Router();
     filmRoute.get('/:id', function(req, res){
         res.json(films[req.params.id])
     })
+    //show rev
+    filmRoute.get('/:id/rev', function(req, res){
+        res.json(films[req.params.id].reviews)
+    })
     //Update film
     filmRoute.put('/:id', function(req, res){
         films[req.params.id] = req.body;
@@ -25,8 +29,8 @@ var filmRoute = express.Router();
         res.json(films)
     })
     //create a new review
-    filmRoute.post('/:id/review', function(req, res){
-        films[req.params.id].push(req.body)
+    filmRoute.post('/:id/rev', function(req, res){
+        films[req.params.id].reviews.push(req.body)
         res.json(films)
     })
     //delete
